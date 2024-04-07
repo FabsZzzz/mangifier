@@ -8,7 +8,6 @@
 <div class="flex h-full justify-center">
 	<div class="m-12 flex flex-col items-center gap-10">
 		<div class="flex flex-col gap-2 text-center">
-			<h1 class="text-lg font-bold">Welcome to</h1>
 			<div class="flex flex-col items-center justify-center gap-4">
 				<img src={Logo} alt="Logo" width="80" height="80" />
 				<h1 class="text-3xl font-bold">Mangifier</h1>

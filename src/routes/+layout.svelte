@@ -4,7 +4,7 @@
 	import { Toaster } from '$lib/components/ui/sonner';
 </script>
 
-<ModeWatcher />
+<ModeWatcher defaultMode="light" />
 <Toaster />
 <body class="h-screen w-full">
 	<slot />

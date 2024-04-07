@@ -35,7 +35,7 @@ export const actions: Actions = {
 			where: or(eq(user.username, username), eq(user.email, username))
 		});
 
-		if (!existingUser) {
+		if (!existingUser || existingUser.hashPassword === null) {
 			return fail(400, {
 				form,
 				message: 'User not found'

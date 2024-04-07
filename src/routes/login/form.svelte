@@ -10,6 +10,7 @@
 	import { Separator } from '$lib/components/ui/separator';
 	import { DotsHorizontal } from 'svelte-radix';
 	import { PasswordInput } from '$lib/components/ui/password-input';
+	import { toast } from 'svelte-sonner';
 
 	export let data: SuperValidated<Infer<Schema>>;
 
@@ -28,6 +29,10 @@
 				errorMessage = result.data.message ?? '';
 			}
 
+			submitting = false;
+		},
+		onError: () => {
+			toast.error('An error occurred. Please try again.');
 			submitting = false;
 		}
 	});

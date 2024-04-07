@@ -41,7 +41,7 @@
 	}
 </script>
 
-<div class="flex w-[100vw] flex-col rounded-none border bg-[#F0EEE1] p-8 sm:w-[130%] sm:rounded-lg">
+<div class="card flex w-[100vw] flex-col rounded-none p-8 sm:w-[130%] sm:rounded-lg">
 	<form class="flex flex-col gap-6" method="POST" use:focusTrap={true} use:enhance>
 		<Form.Field {form} name="username">
 			<Form.Control let:attrs>

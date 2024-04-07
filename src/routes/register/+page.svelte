@@ -24,10 +24,10 @@
 
 <div class="flex h-full justify-center">
 	<div class="m-12 flex flex-col items-center gap-10">
-		<div class="flex flex-col gap-2 text-center">
+		<a class="flex flex-col gap-2 text-center" href="/">
 			<img class="self-center" src={Logo} alt="Logo" width="100" height="100" />
 			<p class="mt-4">Create an account to get started</p>
-		</div>
+		</a>
 		<div class="flex w-[100vw] flex-col sm:w-[350px]">
 			<div
 				class={`${page === 0 ? 'inline opacity-100' : 'hidden opacity-0'} transition-all duration-300`}

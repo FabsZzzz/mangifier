@@ -47,7 +47,7 @@
 	}
 </script>
 
-<div use:focusTrap={true} class="flex flex-col rounded-none border bg-[#F0EEE1] p-8 sm:rounded-lg">
+<div use:focusTrap={true} class="card flex flex-col rounded-none p-8 sm:rounded-lg">
 	<form
 		class="flex flex-col gap-4"
 		method="POST"

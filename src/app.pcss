@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	font-family: 'Oswald', sans-serif;
+}
+@font-face {
+	font-family: 'Oswald';
+	src: url('./lib/assets/oswald.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;
@@ -22,7 +33,7 @@
 		--primary: 157 100% 41%;
 		--primary-foreground: 210 20% 98%;
 
-		--secondary: 220 14.3% 95.9%;
+		--secondary: 31 100% 55%;
 		--secondary-foreground: 220.9 39.3% 11%;
 
 		--accent: 220 14.3% 95.9%;
@@ -74,5 +85,9 @@
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+
+	.card {
+		background: #faf9f0;
 	}
 }

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Footer } from '$lib/components/ui/footer';
 	import { NavBar } from '$lib/components/ui/nav-bar';
-	import { SideNav } from '$lib/components/ui/side-nav';
 
 	export let data;
 

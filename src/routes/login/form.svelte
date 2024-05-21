@@ -62,13 +62,13 @@
 			</Form.Control>
 			<Form.FieldErrors />
 		</Form.Field>
-		<Button disabled={submitting} class="w-full" type="submit">
+		<Form.Button disabled={submitting} class="w-full" type="submit">
 			{#if submitting}
 				<DotsHorizontal class="animate-pulse " />
 			{:else}
 				<div class="flex items-center gap-2">Login</div>
 			{/if}
-		</Button>
+		</Form.Button>
 	</form>
 	{#if errorMessage !== ''}
 		<p class="mt-2 text-center text-destructive">{errorMessage}</p>

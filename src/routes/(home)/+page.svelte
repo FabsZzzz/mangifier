@@ -82,7 +82,7 @@
 	<div class="flex flex-col gap-4">
 		<ResultComponent {result}></ResultComponent>
 
-		<Button class="self-stretch sm:self-end" variant="outline" on:click={() => (result = null)}>
+		<Button class="self-stretch sm:self-center" variant="outline" on:click={() => (result = null)}>
 			<div class="flex gap-2">
 				<ChevronLeft /> Back
 			</div>

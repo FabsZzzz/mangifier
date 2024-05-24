@@ -40,6 +40,7 @@
 						<DropdownMenu.Item href="/login">Log in</DropdownMenu.Item>
 						<DropdownMenu.Item href="/register">Register</DropdownMenu.Item>
 					{:else}
+						<DropdownMenu.Item href="/account/profile">My Profile</DropdownMenu.Item>
 						<DropdownMenu.Item href="/logout">
 							Log out
 							<DropdownMenu.Shortcut>⇧⌘Q</DropdownMenu.Shortcut>

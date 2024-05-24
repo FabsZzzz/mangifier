@@ -40,7 +40,12 @@
 </script>
 
 <div class="my-2 flex justify-end gap-2">
-	<SearchInput class="sm:w-[300px]" bind:value={searchString} {onSearch}></SearchInput>
+	<SearchInput
+		placeholder="Search here..."
+		class="sm:w-[300px]"
+		bind:value={searchString}
+		{onSearch}
+	></SearchInput>
 	<DatePicker bind:value={dateValue}></DatePicker>
 </div>
 {#if data.length === 0}
@@ -67,7 +72,7 @@
 				<p>{toPercentString(item.score)}</p>
 				<p>{new Date(item.createdAt).toLocaleString()}</p>
 				<div class="flex gap-2">
-					<Button variant="ghost">View</Button>
+					<Button variant="ghost" href={`/result/${item.id}`}>View</Button>
 					<Button variant="destructive">
 						<Trash size="16" />
 					</Button>
@@ -84,7 +89,12 @@
 						<div class="flex justify-between gap-2">
 							<p class="text-xl">{labels[item.label]}</p>
 							<div class="flexgap-2">
-								<Button class="rounded-full" variant="ghost" size="icon">
+								<Button
+									class="rounded-full"
+									variant="ghost"
+									size="icon"
+									href={`/result/${item.id}`}
+								>
 									<FileImage size="16" />
 								</Button>
 								<Button class="rounded-full" variant="ghost" size="icon">

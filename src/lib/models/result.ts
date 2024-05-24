@@ -1,5 +1,3 @@
-import type { get } from 'svelte/store';
-
 export type Result = {
 	label: string;
 	score: number;
@@ -21,7 +19,7 @@ export const getResult = (label: string, score: number, image: string | null): R
 	const result = {
 		label: labels[label],
 		score,
-		description: description[label],
+		description: descriptions[label],
 		image,
 		preventions
 	};
@@ -29,7 +27,7 @@ export const getResult = (label: string, score: number, image: string | null): R
 	return result;
 };
 
-const labels = {
+export const labels = {
 	anthracnose: 'Anthracnose',
 	'powdery-mildew': 'Powdery Mildew',
 	'bacterial-canker': 'Bacterial Canker',
@@ -39,7 +37,7 @@ const labels = {
 	healthy: 'Healthy'
 };
 
-const description = {
+export const descriptions = {
 	anthracnose:
 		'Anthracnose is a fungal disease that affects a wide range of plants, including mango trees. It is caused by various species of Colletotrichum fungi and is characterized by dark, sunken lesions on leaves, stems, and fruit. Anthracnose can lead to defoliation, fruit rot, and overall decline in tree health. The disease thrives in warm, humid conditions and can spread rapidly during periods of high rainfall. Proper management practices, including sanitation, pruning, and fungicide applications, can help prevent and control anthracnose in mango trees.',
 	'powdery-mildew':

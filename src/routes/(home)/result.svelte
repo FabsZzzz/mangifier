@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Result } from './result';
+	import type { Result } from '$lib/models/result';
 
 	export let result: Result | null;
 </script>

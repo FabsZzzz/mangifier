@@ -5,7 +5,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { ChevronLeft } from 'lucide-svelte';
 	import ResultComponent from './result.svelte';
-	import { getResult, type Result } from './result';
+	import { getResult, type Result } from '$lib/models/result';
 	import { toast } from 'svelte-sonner';
 
 	$: loading = false;

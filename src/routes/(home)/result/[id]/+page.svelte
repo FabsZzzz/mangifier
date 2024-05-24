@@ -20,7 +20,7 @@
 			/>
 			<div class="col-start-2 row-start-1 flex flex-col gap-4 self-start">
 				<div class="flex justify-between gap-2">
-					<div class="flex justify-between gap-4 sm:justify-start">
+					<div class="flex flex-wrap justify-between gap-4">
 						<p class="text-4xl">{entity.label}</p>
 						<p class="text-4xl">{Math.round(entity.score * 100 * 100) / 100}%</p>
 					</div>

@@ -1,5 +1,5 @@
 import { error, json } from '@sveltejs/kit';
-import type { RequestHandler } from '../$types';
+import type { RequestHandler } from './$types';
 import { db } from '$lib/server/db';
 import { analysis } from '$lib/server/db/schema';
 import { cloudinary } from '$lib/upload/cloudinary';

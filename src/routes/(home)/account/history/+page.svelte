@@ -131,7 +131,12 @@
 								>
 									<FileImage size="16" />
 								</Button>
-								<Button class="rounded-full" variant="ghost" size="icon">
+								<Button
+									class="rounded-full"
+									variant="ghost"
+									size="icon"
+									on:click={() => openDialog(item.id)}
+								>
 									<Trash size="16" class="stroke-destructive" />
 								</Button>
 							</div>

@@ -8,6 +8,7 @@ export const analysis = sqliteTable('analyses', {
 	label: text('label', { length: 255 }).notNull(),
 	score: real('score').notNull(),
 	imageUrl: text('image_url', { length: 255 }).notNull(),
+	cloudinaryId: text('cloudinary_id', { length: 255 }),
 	createdAt: integer('created_at', { mode: 'timestamp' }).notNull()
 });
 

@@ -1,4 +1,7 @@
 <script>
+	import * as Dialog from '$lib/components/ui/dialog';
+	import * as Drawer from '$lib/components/ui/drawer';
+
 	import { onMount } from 'svelte';
 	import { labels, toPercentString } from '$lib/utils/helper';
 	import { SearchInput } from '$lib/components/ui/search-input';
@@ -6,6 +9,8 @@
 	import { CalendarDate } from '@internationalized/date';
 	import { Button } from '$lib/components/ui/button';
 	import { Trash, FileImage } from 'lucide-svelte';
+	import { mediaQuery } from 'svelte-legos';
+	import { toast } from 'svelte-sonner';
 
 	let data = [];
 	let mounted = false;
@@ -36,6 +41,35 @@
 		if (mounted) {
 			fetchData(searchString, dateValue);
 		}
+	}
+
+	let dialogOpen = false;
+	const isDesktop = mediaQuery('(min-width: 768px)');
+
+	function openDialog(id) {
+		dialogOpen = true;
+		currentId = id;
+	}
+
+	let currentId = '';
+	async function deleteHistory() {
+		try {
+			const res = await fetch(`/account/history/delete/${currentId}`, {
+				method: 'DELETE'
+			});
+
+			if (res.ok) {
+				data = data.filter((d) => d.id !== currentId);
+				toast.success('Item deleted successfully');
+			} else {
+				const data = await res.json();
+				toast.error(data.message);
+			}
+		} catch (error) {
+			toast.error('Failed to delete selected item');
+		}
+
+		dialogOpen = false;
 	}
 </script>
 
@@ -73,7 +107,7 @@
 				<p>{new Date(item.createdAt).toLocaleString()}</p>
 				<div class="flex gap-2">
 					<Button variant="ghost" href={`/result/${item.id}`}>View</Button>
-					<Button variant="destructive">
+					<Button variant="destructive" on:click={() => openDialog(item.id)}>
 						<Trash size="16" />
 					</Button>
 				</div>
@@ -109,4 +143,37 @@
 			</li>
 		{/each}
 	</ul>
+{/if}
+
+{#if $isDesktop}
+	<Dialog.Root bind:open={dialogOpen}>
+		<Dialog.Content class="sm:max-w-[425px]">
+			<Dialog.Header>
+				<Dialog.Title>Delete History</Dialog.Title>
+				<Dialog.Description>
+					Do you want to delete this item? This action cannot be undone.
+				</Dialog.Description>
+			</Dialog.Header>
+			<div class="flex justify-end gap-4">
+				<Button variant="destructive" on:click={deleteHistory}>Delete</Button>
+			</div>
+		</Dialog.Content>
+	</Dialog.Root>
+{:else}
+	<Drawer.Root bind:open={dialogOpen}>
+		<Drawer.Content>
+			<Drawer.Header class="text-left">
+				<Drawer.Title>Delete History</Drawer.Title>
+				<Drawer.Description class="mb-4">
+					Do you want to delete this item? This action cannot be undone.
+				</Drawer.Description>
+			</Drawer.Header>
+			<Button on:click={deleteHistory} variant="destructive" class="mx-4">Delete</Button>
+			<Drawer.Footer class="pt-2">
+				<Drawer.Close asChild let:builder>
+					<Button variant="outline" builders={[builder]}>Cancel</Button>
+				</Drawer.Close>
+			</Drawer.Footer>
+		</Drawer.Content>
+	</Drawer.Root>
 {/if}

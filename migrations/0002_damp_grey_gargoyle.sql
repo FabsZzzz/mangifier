@@ -1,0 +1,1 @@
+ALTER TABLE `analyses` ADD `cloudinary_id` text(255);
